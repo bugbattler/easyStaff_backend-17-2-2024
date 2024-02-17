@@ -1,0 +1,12 @@
+const express = require('express');
+const {createQualification,getQualification,getSingleQualification,getQualificationByUser,updateQualification,deleteQualification} = require("../Controllers/qualification.ctl");
+const { upload } = require('../Middlewere/MulterFile');
+const router = express.Router();
+router.post('/qualification/create', createQualification);
+router.get('/qualification/getAll',getQualification);
+router.get('/qualification/getSingle/:id',getSingleQualification);
+router.get('/qualification/getbyemail/:id',getQualificationByUser);
+// router.put("/qualificationImage/:id",upload.single("image"),image);
+router.put("/qualification/edit/:id",updateQualification);
+router.delete("/qualification/delete/:id",deleteQualification);
+module.exports = router;

@@ -1,0 +1,13 @@
+const express = require('express');
+const {signin,signup,getusers,getone,deleteuser,updateuser,updatePassword,profilePicture} = require("../../Controllers/auth/user");
+const { upload } = require('../../Middlewere/MulterFile');
+const router = express.Router();
+router.post('/signup', signup);
+router.post('/signin', signin);
+router.get('/user/getAll',getusers);
+router.get('/user/getoneuser/:id',getone);
+router.put("/userprofilepic/:id",upload.single("profilePicture"),profilePicture);
+router.delete("/deleteUser/:id",deleteuser);
+router.put("/updateuser/:id",updateuser);
+router.put("/updateuserPassword",updatePassword);
+module.exports = router;

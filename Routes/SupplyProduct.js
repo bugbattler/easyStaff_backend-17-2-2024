@@ -1,0 +1,10 @@
+const express = require('express');
+const {createproduct,getSingleproduct,getproduct,updateproduct,deleteproduct} = require("../Controllers/SuppliyerProductctl");
+const router = express.Router();
+router.post('/product/create', createproduct);
+router.get('/product/getAll',getproduct);
+router.get('/product/getSingle/:id',getSingleproduct);
+// router.put("/userprofilepic/:id",upload.single("profilePicture"),require("../controllers/user").profilePicture);
+router.put("/product/edit/:id",updateproduct);
+router.delete("/product/delete/:id",deleteproduct);
+module.exports = router;
